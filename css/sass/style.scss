@@ -1,0 +1,181 @@
+$cream: #f9e9df;
+$pink: #f5dff9;
+$pinkAlpha: #f9e9dfcc;
+$green: #26A98D;
+
+%mainTitles{
+    color: $green;
+    font-family: 'Pacifico', Tahoma, serif;
+    font-size: 30px;
+} 
+
+%centerBoxes{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+%buttons {
+    width: 50%;
+    height: auto;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 2px;
+    font-size: 12px;
+    border: none;
+    background: $green;
+    color: lighten($green, 60%);
+    cursor: pointer;
+    &:hover {
+     opacity: 0.6;
+     transition: 0.2s all ease;
+    }
+  }
+
+ %cardsDisplay {
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+    backface-visibility: hidden;
+    box-shadow: 3px 5px 20px 2px rgba(0, 0, 0, 0.25);
+ } 
+
+body {
+    background-image: url('../img/fondo.jpg');
+    font-family:'Pangolin', courier, sans-serif;
+    @extend %centerBoxes;
+    margin: 0;
+}
+p {
+    line-height: 0.5em;
+    font-size: 20px;
+}
+
+img {
+    width: 100%;
+}
+
+.first {
+    width: 100%;
+    margin: 50px;
+    @extend %centerBoxes;
+    .instructions {
+        @extend %centerBoxes;
+        width: 500px;
+        border: 10px solid $green;
+        border-radius: 5px;
+        background-color: mix($cream, $pink, 30%);
+        h2 {
+            @extend %mainTitles;
+        }
+        .nameinstruction {
+            @extend %centerBoxes;
+        }
+        .levelinstruction {
+            @extend %centerBoxes;
+            margin-bottom: 20px;
+        }
+        button {
+            @extend %buttons;
+        }
+        .required {
+            display: none;
+        }
+    }
+} 
+.hidden {
+    display: none;
+}
+.board {
+    @extend %centerBoxes;
+    width: 60%;
+    margin: auto;
+    flex-wrap: wrap;
+    background-color: $pinkAlpha;
+    border: 10px solid $pink; 
+    .headerboard {
+        width: 90%;
+        @extend %centerBoxes;
+        h2 {
+            @extend %mainTitles;
+        }
+    }
+    .boardcard {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        .card {
+            border: 1px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 5px;
+            width: 150px;
+            height: 150px;
+            background-image: url('../img/tapada.jpg');
+            background-size: cover;
+            cursor: pointer;
+            -webkit-transition: -webkit-transform 0.4s;
+            -moz-transition: -moz-transform 0.4s;
+            -o-transition: -o-transform 0.4s;
+            transition: transform 0.4s;
+            -webkit-transform-style: preserve-3d;
+            -moz-transform-style: preserve-3d;
+            -o-transform-style: preserve-3d;
+            transform-style: preserve-3d; 
+            @extend %cardsDisplay;
+            &.flipped {
+                -webkit-transform: rotateY( 180deg );
+                -moz-transform: rotateY( 180deg );
+                -o-transform: rotateY( 180deg );
+                transform: rotateY( 180deg );     
+            }
+            &.show span {
+                display: block;
+                @extend %cardsDisplay;
+                
+            }
+            &:hover{
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            } 
+            &.grey {
+                -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+                filter: grayscale(100%);
+            }  
+            span {
+                width: 150px;
+                height: 150px;
+                display: none;
+                -webkit-transform: rotateY( 180deg );
+                -moz-transform: rotateY( 180deg );
+                -o-transform: rotateY( 180deg );
+                transform: rotateY( 180deg );
+                @extend %cardsDisplay;                    
+            }
+            &.visited {
+                filter: grayscale(100%);
+            }
+            img {
+                width: 150px;
+                height: 150px;
+                border: 1px solid black;
+                
+            }
+            .gray {
+                filter: grayscale(100%);
+            }
+        }     
+    }
+    .footerboard {
+        .tries {
+            border: 2px solid $pink;
+            border-radius: 10px;
+            padding: 0 15px;
+            margin: 5px;
+        }
+    }
+} 
+
+
+
