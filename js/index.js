@@ -1,4 +1,3 @@
-// primer nivel de prueba
 var maxIntentos;
 var intentos = 0;
 var pares = 0;
@@ -38,7 +37,6 @@ $('button').on('click', function(){
     $('#level').append(level);
   })
 
-// declara los elementos carta -> ver si aca asigno la imagen de fondo
 var divContainer = $('#cardscontainer');
 var cards = [
   {id: 1, dataid:"1", img: './img/alce.jpg'},
