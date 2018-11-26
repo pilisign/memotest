@@ -1,10 +1,10 @@
 .board .headerboard h2, .first .instructions h2 {
   color: #26A98D;
-  font-family: "Pacifico", Tahoma, serif;
+  font-family: "Pacifico", Courier, serif;
   font-size: 30px;
 }
 
-.board .headerboard, .board, .first .instructions .levelinstruction, .first .instructions .nameinstruction, .first .instructions, .first, body {
+#winner .scores, .board .headerboard, .board, .first .instructions .levelinstruction, .first .instructions .nameinstruction, .first .instructions, .first, body {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -36,15 +36,36 @@
   box-shadow: 3px 5px 20px 2px rgba(0, 0, 0, 0.25);
 }
 
+#winner, #gameover {
+  width: 50%;
+  background-color: white;
+  color: black;
+  z-index: 1;
+  top: 10%;
+  height: auto;
+  left: 25%;
+  right: 50%;
+  position: absolute;
+  padding: 50px;
+  flex-direction: column;
+  font-size: 20px;
+  align-items: center;
+  border: 7px solid black;
+  border-radius: 5px;
+  text-align: center;
+}
+
 body {
   background-image: url("../img/fondo.jpg");
-  font-family: "Pangolin", courier, sans-serif;
+  font-family: "Pangolin", Courier, sans-serif;
   margin: 0;
 }
 
 p {
-  line-height: 0.5em;
+  line-height: 1em;
   font-size: 20px;
+  text-align: center;
+  margin-top: 0px;
 }
 
 img {
@@ -56,16 +77,32 @@ img {
   margin: 50px;
 }
 .first .instructions {
-  width: 500px;
-  border: 10px solid #26A98D;
+  width: 60%;
+  border: 10px solid black;
   border-radius: 5px;
   background-color: #f6e2f1;
 }
 .first .instructions .levelinstruction {
+  margin-top: 20px;
+}
+.first .instructions input {
+  border: none;
+  border-radius: 3px;
+  height: 25px;
+  width: 200px;
+  padding-left: 5px;
+  text-align: center;
+}
+.first .instructions input:focus {
+  border-color: #f5dff9;
+  outline: 0;
+  box-shadow: inset 0 1px 1px #f8e6e7;
+}
+.first .instructions .levelinstruction {
   margin-bottom: 20px;
 }
-.first .instructions .required {
-  display: none;
+.first .instructions #required {
+  color: brown;
 }
 
 .hidden {
@@ -73,19 +110,23 @@ img {
 }
 
 .board {
-  width: 60%;
+  width: 70%;
   margin: auto;
   flex-wrap: wrap;
   background-color: #f9e9dfcc;
-  border: 10px solid #f5dff9;
+  border: 10px solid black;
 }
 .board .headerboard {
   width: 90%;
+}
+.board .headerboard #totallifes {
+  color: #26A98D;
 }
 .board .boardcard {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  width: 65%;
 }
 .board .boardcard .card {
   border: 1px solid black;
@@ -93,8 +134,8 @@ img {
   justify-content: center;
   align-items: center;
   margin: 5px;
-  width: 150px;
-  height: 150px;
+  width: 7em;
+  height: 7em;
   background-image: url("../img/tapada.jpg");
   background-size: cover;
   cursor: pointer;
@@ -125,8 +166,8 @@ img {
   filter: grayscale(100%);
 }
 .board .boardcard .card span {
-  width: 150px;
-  height: 150px;
+  width: 7em;
+  height: 7em;
   display: none;
   -webkit-transform: rotateY(180deg);
   -moz-transform: rotateY(180deg);
@@ -137,18 +178,107 @@ img {
   filter: grayscale(100%);
 }
 .board .boardcard .card img {
-  width: 150px;
-  height: 150px;
+  width: 7em;
+  height: 7em;
   border: 1px solid black;
 }
 .board .boardcard .card .gray {
   filter: grayscale(100%);
 }
 .board .footerboard .tries {
-  border: 2px solid #f5dff9;
+  border: 2px solid #26A98D;
+  background-color: white;
   border-radius: 10px;
-  padding: 0 15px;
-  margin: 5px;
+  padding: 16px 16px 0px 16px;
+  margin: 14px;
+}
+
+#finalModal {
+  background-color: #f9e9dfcc;
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  left: 0;
+  top: 0;
+}
+
+#winner .scores {
+  overflow-x: auto;
+}
+#winner .scores table {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 90%;
+  border: 2px solid #f5dff9;
+}
+#winner .scores table tr {
+  border: 1px dotted black;
+}
+#winner .scores table trth {
+  text-align: left;
+  background-color: #f9e9dfcc;
+  padding: 8px;
+  border: 2px solid #f5dff9;
+}
+
+.btn {
+  width: 50%;
+  height: auto;
+  padding: 5px;
+  border-radius: 5px;
+  margin: 2px;
+  font-size: 12px;
+  border: none;
+  background: #26A98D;
+  color: white;
+  cursor: pointer;
+}
+
+.close {
+  display: flex;
+  background-color: #f5dff9;
+  border-radius: 50%;
+  position: absolute;
+  top: -12px;
+  right: -11px;
+  z-index: 1;
+  font-size: 29px;
+}
+
+@media (max-width: 600px) {
+  .first .instructions {
+    width: 80%;
+  }
+
+  .board {
+    width: 95%;
+  }
+  .board .boardcard .card {
+    width: 5em;
+    height: 5em;
+  }
+  .board .boardcard .card span {
+    width: 5em;
+    height: 5em;
+  }
+  .board .boardcard .card img {
+    width: 5em;
+    height: 5em;
+  }
+
+  #finalModal {
+    width: 100%;
+  }
+
+  #winner, #gameover {
+    width: 85%;
+    top: 5%;
+    left: 3%;
+    right: 2%;
+    padding: 20px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

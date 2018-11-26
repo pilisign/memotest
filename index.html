@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Memotest</title>
+    <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Pangolin" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
@@ -17,16 +19,16 @@
                 <p>Hola 👋🏻 ! Vamos a jugar al Memotest</p>
                 <p>Pero antes de empezar...</p>
                 <p>Cuál es tu nombre❓</p>
-                <input id="name" type="text" placeholder="usuari@ *">
+                <span><input id="name" type="text" placeholder="|usuari@"><span> *</span></span>
+                <div id="required" class="hidden">
+                    <p>UPSS...El nombre es requerido.</p>
+                </div>
             </div>
             <div class="levelinstruction">
                 <p>Con que dificultad te gustaria jugar?</p>
                 <button id="easy">Fácil</button>
                 <button id="intermediate">Intermedio</button>
                 <button id="hard">Difícil</button>
-            </div>
-            <div class="required">
-                <p>UPSS...El nombre es requerido.</p>
             </div>
         </div>
     </section>
@@ -45,18 +47,24 @@
             </div>
         </div>
     </section>
-    <section id="finalModal" class="hidden">
-        <div class="gameover">
-            <p>Perdiste 😓 con</p><p id="lifes"></p><p>intentos. Pero podes volver a intentarlo</p>
-            <button id="retry">VOLVER A INTENTAR</button>
-            <div class="scores">
-                <div class="name-player">NOMBRE</div>
-                <div class="level-player">NIVEL</div>
-                <div class="lifes-player">INTENTOS</div>
-            </div>
+    <div id="finalModal" class="hidden"></div>
+    <div id="gameover" class="hidden">
+        <span><i class="close fas fa-times-circle"></i></span>
+        <span>Perdiste 😓 con </span><span id="loser"></span><span> intentos.</span> 
+        <p>Pero podes volver a intentarlo</p>   
+        <button class="retry btn">VOLVER A INTENTAR</button>
+    </div>
+    <div id="winner" class="hidden">
+        <span><i class="close fas fa-times-circle"></i></span>
+        <div>
+            <span>ganaste <i class="em em-tada"></i> con </span><span id="win"></span><span> intentos.</span> 
+        </div>    
+        <div class="scores">
         </div>
-    </section>
+        <button class="retry btn">JUGAR DE NUEVO!</button>
+    </div>
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/index-b.js"></script>
 </body>
 </html>
