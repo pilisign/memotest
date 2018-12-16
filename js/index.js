@@ -2,55 +2,80 @@ var maxIntentos;
 var intentos = 0;
 var pares = 0;
 
-$('button').on('click', function(){
+$('.instructions').animate({
+  height: '+=500',
+}, 500, function() {
+  $('.instructions').animate({
+   height: '-=500',
+  }, 500, function() {
+  });
+});
+
+$('#easy').on('click', function(){
   if ($("#name").val() == ""){
     var required = $('#required');
     required.removeClass("hidden");
-    } else {
+  } else {
+      $('.board').removeClass('hidden')
+      $('.first').addClass('hidden')
+      var name = $('#name').val();
+      $('#required').append(name);
+      $('#repeatname').append(name);
+      maxIntentos = 18;
+      $('#totallifes').append(maxIntentos);
+      var level = 'Fácil';
+      $('#level').append(level);
+  }
+})
+  
+$('#intermediate').on('click', function(){
+  if ($("#name").val() == ""){
+    var required = $('#required');
+    required.removeClass("hidden");
+  } else {
     $('.board').removeClass('hidden')
     $('.first').addClass('hidden')
     var name = $('#name').val();
     $('#required').append(name);
     $('#repeatname').append(name);
-    }
-})
-
- $('#easy').on('click', function(){
-   maxIntentos = 18;
-  $('#totallifes').append(maxIntentos);
-   var level = 'Fácil';
-   $('#level').append(level);
-
-   })
-  
-  $('#intermediate').on('click', function(){
     maxIntentos = 12;
     $('#totallifes').append(maxIntentos);
     var level = 'Intermedio';
     $('#level').append(level);
-  })
+  }
+})
   
-  $('#hard').on('click', function(){
+$('#hard').on('click', function(){
+  if ($("#name").val() == ""){
+    var required = $('#required');
+    required.removeClass("hidden");
+  } else {
+    $('.board').removeClass('hidden')
+    $('.first').addClass('hidden')
+    var name = $('#name').val();
+    $('#required').append(name);
+    $('#repeatname').append(name);
     maxIntentos = 9;
     $('#totallifes').append(maxIntentos);
     var level = 'Difícil';
     $('#level').append(level);
-  })
+  }
+})
 
 var divContainer = $('#cardscontainer');
 var cards = [
-  {id: 1, dataid:"1", img: './img/alce.jpg'},
-  {id: 2, dataid:"2", img: './img/epelante.jpg'},
-  {id: 3, dataid:"3", img: './img/peces.jpg'},
-  {id: 4, dataid:"4", img: './img/nena.jpg'},
-  {id: 5, dataid:"5", img: './img/unichancho.jpg'},
-  {id: 6, dataid:"6", img: './img/zapas.jpg'},
-  {id: 7, dataid:"1", img: './img/alce.jpg'},
-  {id: 8, dataid:"2", img: './img/epelante.jpg'},
-  {id: 9, dataid:"3", img: './img/peces.jpg'},
-  {id: 10, dataid:"4", img: './img/nena.jpg'},
-  {id: 11, dataid:"5", img: './img/unichancho.jpg'},
-  {id: 12, dataid:"6", img: './img/zapas.jpg'},
+  {id: 1, dataid:"1", img: './img/mano.jpg'},
+  {id: 2, dataid:"2", img: './img/lagrimas.jpg'},
+  {id: 3, dataid:"3", img: './img/molotov.jpg'},
+  {id: 4, dataid:"4", img: './img/miso.jpg'},
+  {id: 5, dataid:"5", img: './img/boca.jpg'},
+  {id: 6, dataid:"6", img: './img/llave.jpg'},
+  {id: 7, dataid:"1", img: './img/mano.jpg'},
+  {id: 8, dataid:"2", img: './img/lagrimas.jpg'},
+  {id: 9, dataid:"3", img: './img/molotov.jpg'},
+  {id: 10, dataid:"4", img: './img/miso.jpg'},
+  {id: 11, dataid:"5", img: './img/boca.jpg'},
+  {id: 12, dataid:"6", img: './img/llave.jpg'},
 ];
 
 const desordenado = shuffle(cards)
@@ -136,8 +161,8 @@ function jugada(){
               console.log('entro a la funcion son distintas')
               intentos++
               }
-          clicks = 0
-        console.log(clicks, 'cantidad')
+              clicks = 0
+              console.log(clicks, 'cantidad')
       }
       var lifes = $('<span id="lifes">' + intentos + '</span>');
       $('#lifes').html(lifes);   
@@ -155,7 +180,6 @@ $('.retry').on('click', function(){
 })
 
  function guardarJugador() {
-
     var winners = [];
     var jugador = {
         name: $("#name").val(),
@@ -168,10 +192,8 @@ $('.retry').on('click', function(){
     } else {
       data = JSON.parse(data)
       }
-
     console.log(data, typeof data)
-    data.push(jugador);
-    
+    data.push(jugador);  
     localStorage.setItem('winners', JSON.stringify(data))
 }
 
@@ -190,12 +212,10 @@ function armarTabla() {
     var namedata = "<td>" + infoPlayer[i].name + "</td>";
     var leveldata = "<td>" + infoPlayer[i].level + "</td>";
     var lifesdata = "<td>" + infoPlayer[i].intentos + "</td>";
-
     var fila = $('<tr class="fila"></tr>');
     fila.append(namedata);
     fila.append(leveldata);
-    fila.append(lifesdata);
-    
+    fila.append(lifesdata);   
     tablaJugadores.append(fila);
   }
 }  
