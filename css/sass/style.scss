@@ -1,11 +1,11 @@
 $cream: #f9e9df;
-$pink: #f5dff9;
-$pinkAlpha: #f9e9dfcc;
-$green: #26A98D;
+$pink: #9b46dba6;
+$pinkAlpha: #794586d1;
+$green: #00af9a;
 
 %mainTitles{
     color: $green;
-    font-family: 'Pacifico', Courier, serif;
+    font-family: 'Press Start 2P', cursive;
     font-size: 30px;
 } 
 
@@ -22,7 +22,7 @@ $green: #26A98D;
     padding: 5px;
     border-radius: 5px;
     margin: 2px;
-    font-size: 12px;
+    font-size: 16px;
     border: none;
     background: $green;
     color: lighten($green, 60%);
@@ -62,14 +62,15 @@ $green: #26A98D;
 
 body {
     background-image: url('../img/fondo.jpg');
-    font-family:'Pangolin', Courier, sans-serif;
+    background-size: cover;
+    font-family: 'Press Start 2P', cursive;
     @extend %centerBoxes;
     margin: 0;
 }
 
 p {
-    line-height: 1em;
-    font-size: 20px;
+    line-height: 1.3em;
+    font-size: 13px;
     text-align: center;
     margin-top: 0px;
 }
@@ -82,12 +83,18 @@ img {
     width: 100%;
     margin: 50px;
     @extend %centerBoxes;
+    #toggle {
+        width: 100px;
+        height: 100px;
+        background: #ccc;
+      }
     .instructions {
         @extend %centerBoxes;
         width: 60%;
         border: 10px solid black;
+        color: white;
         border-radius: 5px;
-        background-color: mix($cream, $pink, 30%);
+        background-color: $pink;
         h2 {
             @extend %mainTitles;
         }
@@ -118,8 +125,8 @@ img {
             @extend %buttons;
         }
         #required {
-            color: brown;
-            margin-top: 5px;
+            color: #e91e63;
+            margin-top: 15px;
         }
     }
 } 
@@ -130,13 +137,15 @@ img {
 
 .board {
     @extend %centerBoxes;
-    width: 70%;
+    width: 45%;
     margin: auto;
     flex-wrap: wrap;
     background-color: $pinkAlpha;
+    color: white;
     border: 10px solid black; 
+    border-radius: 10px;
     .headerboard {
-        width: 90%;
+        width: 100%;
         @extend %centerBoxes;
         h2 {
             @extend %mainTitles;
@@ -149,7 +158,7 @@ img {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        width: 65%;
+        width: 90%;
         .card {
             border: 1px solid black;
             display: flex;
@@ -212,11 +221,11 @@ img {
     }
     .footerboard {
         .tries {
-            border: 2px solid $green;
-            background-color: white;
+            border: 2px solid white;
             border-radius: 10px;
             padding: 16px 16px 0px 16px;
             margin: 14px;
+            color: white;
         }
     }
 }
@@ -283,7 +292,27 @@ img {
     font-size: 29px;
 }
 
-@media (max-width: 600px) {
+@media (min-width: 600px) and (max-width: 1200px) {
+    .board {
+        width: 45%;
+        .boardcard {
+            .card {
+                width: 5em;
+                height: 5em;
+                span {
+                    width: 5em;
+                    height: 5em;
+                }
+                img {
+                    width: 5em;
+                    height: 5em;  
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 600px) and (min-width: 250px) {
     .first {
         .instructions {
             width: 80%;

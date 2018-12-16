@@ -1,6 +1,6 @@
 .board .headerboard h2, .first .instructions h2 {
-  color: #26A98D;
-  font-family: "Pacifico", Courier, serif;
+  color: #00af9a;
+  font-family: "Press Start 2P", cursive;
   font-size: 30px;
 }
 
@@ -17,10 +17,10 @@
   padding: 5px;
   border-radius: 5px;
   margin: 2px;
-  font-size: 12px;
+  font-size: 16px;
   border: none;
-  background: #26A98D;
-  color: white;
+  background: #00af9a;
+  color: #e2fffc;
   cursor: pointer;
 }
 .first .instructions button:hover {
@@ -57,13 +57,14 @@
 
 body {
   background-image: url("../img/fondo.jpg");
-  font-family: "Pangolin", Courier, sans-serif;
+  background-size: cover;
+  font-family: "Press Start 2P", cursive;
   margin: 0;
 }
 
 p {
-  line-height: 1em;
-  font-size: 20px;
+  line-height: 1.3em;
+  font-size: 13px;
   text-align: center;
   margin-top: 0px;
 }
@@ -76,11 +77,17 @@ img {
   width: 100%;
   margin: 50px;
 }
+.first #toggle {
+  width: 100px;
+  height: 100px;
+  background: #ccc;
+}
 .first .instructions {
   width: 60%;
   border: 10px solid black;
+  color: white;
   border-radius: 5px;
-  background-color: #f6e2f1;
+  background-color: #9b46dba6;
 }
 .first .instructions .levelinstruction {
   margin-top: 20px;
@@ -94,16 +101,16 @@ img {
   text-align: center;
 }
 .first .instructions input:focus {
-  border-color: #f5dff9;
+  border-color: #9b46dba6;
   outline: 0;
-  box-shadow: inset 0 1px 1px #f8e6e7;
+  box-shadow: inset 0 1px 1px rgba(233, 205, 222, 0.8952941176);
 }
 .first .instructions .levelinstruction {
   margin-bottom: 20px;
 }
 .first .instructions #required {
-  color: brown;
-  margin-top: 5px;
+  color: #e91e63;
+  margin-top: 15px;
 }
 
 .hidden {
@@ -111,23 +118,25 @@ img {
 }
 
 .board {
-  width: 70%;
+  width: 45%;
   margin: auto;
   flex-wrap: wrap;
-  background-color: #f9e9dfcc;
+  background-color: #794586d1;
+  color: white;
   border: 10px solid black;
+  border-radius: 10px;
 }
 .board .headerboard {
-  width: 90%;
+  width: 100%;
 }
 .board .headerboard #totallifes {
-  color: #26A98D;
+  color: #00af9a;
 }
 .board .boardcard {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  width: 65%;
+  width: 90%;
 }
 .board .boardcard .card {
   border: 1px solid black;
@@ -187,15 +196,15 @@ img {
   filter: grayscale(100%);
 }
 .board .footerboard .tries {
-  border: 2px solid #26A98D;
-  background-color: white;
+  border: 2px solid white;
   border-radius: 10px;
   padding: 16px 16px 0px 16px;
   margin: 14px;
+  color: white;
 }
 
 #finalModal {
-  background-color: #f9e9dfcc;
+  background-color: #794586d1;
   position: fixed;
   width: 100%;
   height: 100vh;
@@ -212,16 +221,16 @@ img {
   border-collapse: collapse;
   border-spacing: 0;
   width: 90%;
-  border: 2px solid #f5dff9;
+  border: 2px solid #9b46dba6;
 }
 #winner .scores table tr {
   border: 1px dotted black;
 }
 #winner .scores table trth {
   text-align: left;
-  background-color: #f9e9dfcc;
+  background-color: #794586d1;
   padding: 8px;
-  border: 2px solid #f5dff9;
+  border: 2px solid #9b46dba6;
 }
 
 .btn {
@@ -239,7 +248,7 @@ img {
 
 .close {
   display: flex;
-  background-color: #f5dff9;
+  background-color: #9b46dba6;
   border-radius: 50%;
   position: absolute;
   top: -12px;
@@ -248,7 +257,24 @@ img {
   font-size: 29px;
 }
 
-@media (max-width: 600px) {
+@media (min-width: 600px) and (max-width: 1200px) {
+  .board {
+    width: 45%;
+  }
+  .board .boardcard .card {
+    width: 5em;
+    height: 5em;
+  }
+  .board .boardcard .card span {
+    width: 5em;
+    height: 5em;
+  }
+  .board .boardcard .card img {
+    width: 5em;
+    height: 5em;
+  }
+}
+@media (max-width: 600px) and (min-width: 250px) {
   .first .instructions {
     width: 80%;
   }
