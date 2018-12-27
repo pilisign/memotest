@@ -115,8 +115,6 @@ function jugada(){
      $(this).toggleClass('flipped');
      $(this).addClass('show');
       
-      console.log(clicks, 'cantidad')
-      
       if (intentos >= maxIntentos) {
         $('#finalModal').removeClass('hidden')
         $('#gameover').removeClass('hidden')
@@ -130,7 +128,6 @@ function jugada(){
             id: id,
             dataId: dataId
           }
-        console.log(primerClick, id, dataId)
         } else {
           // Si no es el primer click ya puede comparar
           // si son iguales
@@ -139,7 +136,6 @@ function jugada(){
           if (primerClick.dataId == dataId ) {
               $('#' + primerClick.id).addClass('gray')  
               $(this).children().children().addClass('gray')
-              console.log('son iguales', 'primer click es', primerClick.dataId, 'segundo click es', dataId)
               pares++
               if (pares == 6){
                 $('#finalModal').removeClass('hidden')
@@ -157,12 +153,9 @@ function jugada(){
               $('#'+ primerClick.id).parent().parent().removeClass('show flipped')
               // se dan vuelta las cartas del segundo click
               $(that).removeClass('show flipped') },2000)
-              console.log('Segundo click Id es', dataId)
-              console.log('entro a la funcion son distintas')
               intentos++
               }
               clicks = 0
-              console.log(clicks, 'cantidad')
       }
       var lifes = $('<span id="lifes">' + intentos + '</span>');
       $('#lifes').html(lifes);   
@@ -192,7 +185,6 @@ $('.retry').on('click', function(){
     } else {
       data = JSON.parse(data)
       }
-    console.log(data, typeof data)
     data.push(jugador);  
     localStorage.setItem('winners', JSON.stringify(data))
 }
