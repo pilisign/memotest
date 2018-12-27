@@ -8,21 +8,20 @@ $green: #00af9a;
     font-family: 'Press Start 2P', cursive;
     font-size: 30px;
 } 
-
 %centerBoxes{
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
 }
-
 %buttons {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 12px;
     width: 50%;
     height: auto;
     padding: 5px;
     border-radius: 5px;
     margin: 2px;
-    font-size: 16px;
     border: none;
     background: $green;
     color: lighten($green, 60%);
@@ -32,7 +31,6 @@ $green: #00af9a;
      transition: 0.2s all ease;
     }
   }
-
  %cardsDisplay {
     -webkit-backface-visibility: hidden;
     -moz-backface-visibility: hidden;
@@ -40,7 +38,6 @@ $green: #00af9a;
     backface-visibility: hidden;
     box-shadow: 3px 5px 20px 2px rgba(0, 0, 0, 0.25);
  } 
-
  %modals{
     width: 50%;
     background-color: white;
@@ -59,7 +56,6 @@ $green: #00af9a;
     border-radius: 5px;
     text-align: center;
  }
-
 body {
     background-image: url('../img/fondo.jpg');
     background-size: cover;
@@ -67,18 +63,15 @@ body {
     @extend %centerBoxes;
     margin: 0;
 }
-
 p {
     line-height: 1.3em;
     font-size: 13px;
     text-align: center;
     margin-top: 0px;
 }
-
 img {
     width: 100%;
 }
-
 .first {
     width: 100%;
     margin: 50px;
@@ -134,7 +127,6 @@ img {
 .hidden {
     display: none;
 }
-
 .board {
     @extend %centerBoxes;
     width: 45%;
@@ -229,7 +221,6 @@ img {
         }
     }
 }
-
 #finalModal {
     background-color: $pinkAlpha;
     position: fixed;
@@ -238,11 +229,9 @@ img {
     left: 0;
     top: 0;
 }
-
 #gameover {
     @extend %modals;
 }
-
 #winner {
     @extend %modals;
     .scores {
@@ -255,6 +244,7 @@ img {
             border-spacing: 0;
             width: 90%;
             border: 2px solid $pink;
+            font-size: 10px;
             tr {
                 border: 1px dotted black; 
                 &th {
@@ -267,7 +257,6 @@ img {
         }
     }
 }
-
 .btn {
     width: 50%;
     height: auto;
@@ -277,10 +266,11 @@ img {
     font-size: 12px;
     border: none;
     background: #26A98D;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 12px;
     color: white;
     cursor: pointer;
 }
-
 .close {
     display: flex;
     background-color: $pink;
@@ -313,9 +303,13 @@ img {
 }
 
 @media (max-width: 600px) and (min-width: 250px) {
+    body {
+        background-size: auto;
+    }
     .first {
         .instructions {
             width: 80%;
+            padding: 25px;
         }
     }
     .board {
@@ -339,7 +333,7 @@ img {
         width: 100%;
     }
     #winner, #gameover {
-        width: 85%;
+        width: 80%;
         top: 5%;
         left: 3%;
         right: 2%;
