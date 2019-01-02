@@ -4,7 +4,7 @@
   font-size: 30px;
 }
 
-#winner .scores, .board .headerboard, .board, .first .instructions .levelinstruction, .first .instructions .nameinstruction, .first .instructions, .first, body {
+.modal-correct .fa-check, .modal-correct, .modal-wrong .fa-times, .modal-wrong, #winner .scores, .board .headerboard, .board, .first .instructions .levelinstruction, .first .instructions .nameinstruction, .first .instructions, .first, body {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -83,7 +83,29 @@ img {
   height: 100px;
   background: #ccc;
 }
+@-webkit-keyframes instructions {
+  0% {
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@keyframes instructions {
+  0% {
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
 .first .instructions {
+  -webkit-animation: instructions 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  animation: instructions 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
   width: 60%;
   border: 10px solid black;
   color: white;
@@ -235,6 +257,36 @@ img {
   border: 2px solid #9b46dba6;
 }
 
+.modal-wrong {
+  width: 45%;
+  margin: auto;
+  position: absolute;
+  background-color: rgba(255, 0, 0, 0.324);
+  height: 100%;
+  z-index: 1;
+}
+.modal-wrong .fa-times {
+  display: flex;
+  color: white;
+  mix-blend-mode: multiply;
+  font-size: 100px;
+}
+
+.modal-correct {
+  width: 45%;
+  margin: auto;
+  position: absolute;
+  background-color: rgba(4, 194, 49, 0.324);
+  height: 100%;
+  z-index: 1;
+}
+.modal-correct .fa-check {
+  display: flex;
+  color: white;
+  mix-blend-mode: multiply;
+  font-size: 100px;
+}
+
 .btn {
   width: 50%;
   height: auto;
@@ -302,6 +354,12 @@ img {
   .board .boardcard .card img {
     width: 5em;
     height: 5em;
+  }
+  .board .modal-wrong {
+    width: 100%;
+  }
+  .board .modal-correct {
+    width: 100%;
   }
 
   #finalModal {

@@ -81,8 +81,32 @@ img {
         height: 100px;
         background: #ccc;
       }
+
+@-webkit-keyframes instructions {
+    0% {
+      -webkit-transform: scale(0.5);
+              transform: scale(0.5);
+    }
+    100% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+    }
+  }
+  @keyframes instructions {
+    0% {
+      -webkit-transform: scale(0.5);
+              transform: scale(0.5);
+    }
+    100% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+    }
+  }
+  
     .instructions {
         @extend %centerBoxes;
+        -webkit-animation: instructions 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+                animation: instructions 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
         width: 60%;
         border: 10px solid black;
         color: white;
@@ -127,6 +151,7 @@ img {
 .hidden {
     display: none;
 }
+
 .board {
     @extend %centerBoxes;
     width: 45%;
@@ -257,6 +282,38 @@ img {
         }
     }
 }
+.modal-wrong {
+    @extend %centerBoxes;
+    width: 45%;
+    margin: auto;
+    position: absolute;
+    background-color: rgba(255, 0, 0, 0.324);
+    height: 100%;
+    z-index: 1;
+    .fa-times {
+        display: flex;
+        @extend %centerBoxes;
+        color: white;
+        mix-blend-mode: multiply;
+        font-size: 100px;
+    }
+}
+.modal-correct {
+    @extend %centerBoxes;
+    width: 45%;
+    margin: auto;
+    position: absolute;
+    background-color: rgba(4, 194, 49, 0.324);
+    height: 100%;
+    z-index: 1;
+    .fa-check {
+        display: flex;
+        @extend %centerBoxes;
+        color: white;
+        mix-blend-mode: multiply;
+        font-size: 100px;
+    }
+}
 .btn {
     width: 50%;
     height: auto;
@@ -327,6 +384,12 @@ img {
                     height: 5em;  
                 }
             }
+        }
+        .modal-wrong {
+            width: 100%;
+        }
+        .modal-correct {
+            width: 100%;
         }
     }
     #finalModal {

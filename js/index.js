@@ -2,14 +2,14 @@ var maxIntentos;
 var intentos = 0;
 var pares = 0;
 
-$('.instructions').animate({
-  height: '+=500',
-}, 500, function() {
-  $('.instructions').animate({
-   height: '-=500',
-  }, 500, function() {
-  });
-});
+// $('.instructions').animate({
+//   height: '+=500',
+// }, 500, function() {
+//   $('.instructions').animate({
+//    height: '-=500',
+//   }, 500, function() {
+//   });
+// });
 
 $('#easy').on('click', function(){
   if ($("#name").val() == ""){
@@ -134,8 +134,14 @@ function jugada(){
            dataId = $(this).children().children().attr('data-id')
           
           if (primerClick.dataId == dataId ) {
-              $('#' + primerClick.id).addClass('gray')  
-              $(this).children().children().addClass('gray')
+              setTimeout(function(){
+              $('#correct').removeClass('hidden');
+              },150);
+              $('#' + primerClick.id).addClass('gray');
+              $(this).children().children().addClass('gray');
+              setTimeout(function(){
+                $('#correct').addClass('hidden');
+                },2000);
               pares++
               if (pares == 6){
                 $('#finalModal').removeClass('hidden')
@@ -146,13 +152,19 @@ function jugada(){
                 armarRanking();
               }
           } else {
+            setTimeout(function(){
+              $('#wrong').removeClass('hidden');
+              },150);
               var that = this
               // si no son iguales son distintas
               setTimeout(function(){
               // se dan vuelta las cartas del primer click
               $('#'+ primerClick.id).parent().parent().removeClass('show flipped')
               // se dan vuelta las cartas del segundo click
-              $(that).removeClass('show flipped') },2000)
+              $(that).removeClass('show flipped') },1500);
+              setTimeout(function(){
+                $('#wrong').addClass('hidden');
+                },1500);
               intentos++
               }
               clicks = 0
