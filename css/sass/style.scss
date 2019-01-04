@@ -57,7 +57,7 @@ $green: #00af9a;
     text-align: center;
  }
 body {
-    background-image: url('../img/fondo.jpg');
+    background-color: #521752;
     background-size: cover;
     font-family: 'Press Start 2P', cursive;
     @extend %centerBoxes;
@@ -284,12 +284,16 @@ img {
 }
 .modal-wrong {
     @extend %centerBoxes;
-    width: 45%;
+    width: 100%;
     margin: auto;
-    position: absolute;
+    position: fixed;
     background-color: rgba(255, 0, 0, 0.324);
     height: 100%;
     z-index: 1;
+    background-size: cover;
+    overflow: 'scroll';
+    top: 0;
+    left: 0;
     .fa-times {
         display: flex;
         @extend %centerBoxes;
@@ -300,9 +304,9 @@ img {
 }
 .modal-correct {
     @extend %centerBoxes;
-    width: 45%;
+    width: 100%;
     margin: auto;
-    position: absolute;
+    position: fixed;
     background-color: rgba(4, 194, 49, 0.324);
     height: 100%;
     z-index: 1;
@@ -387,9 +391,11 @@ img {
         }
         .modal-wrong {
             width: 100%;
+            height: 100%;
         }
         .modal-correct {
             width: 100%;
+            height: 100%;
         }
     }
     #finalModal {
@@ -402,5 +408,4 @@ img {
         right: 2%;
         padding: 20px;
     }
-
 }

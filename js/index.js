@@ -2,15 +2,6 @@ var maxIntentos;
 var intentos = 0;
 var pares = 0;
 
-// $('.instructions').animate({
-//   height: '+=500',
-// }, 500, function() {
-//   $('.instructions').animate({
-//    height: '-=500',
-//   }, 500, function() {
-//   });
-// });
-
 $('#easy').on('click', function(){
   if ($("#name").val() == ""){
     var required = $('#required');
