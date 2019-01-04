@@ -284,9 +284,9 @@ img {
 }
 .modal-wrong {
     @extend %centerBoxes;
-    width: 45%;
+    width: 100%;
     margin: auto;
-    position: absolute;
+    position: fixed;
     background-color: rgba(255, 0, 0, 0.324);
     height: 100%;
     z-index: 1;
@@ -300,9 +300,9 @@ img {
 }
 .modal-correct {
     @extend %centerBoxes;
-    width: 45%;
+    width: 100%;
     margin: auto;
-    position: absolute;
+    position: fixed;
     background-color: rgba(4, 194, 49, 0.324);
     height: 100%;
     z-index: 1;
