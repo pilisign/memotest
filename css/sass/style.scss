@@ -154,7 +154,7 @@ img {
 
 .board {
     @extend %centerBoxes;
-    width: 45%;
+    width: 600px;
     margin: auto;
     flex-wrap: wrap;
     background-color: $pinkAlpha;
@@ -290,6 +290,10 @@ img {
     background-color: rgba(255, 0, 0, 0.324);
     height: 100%;
     z-index: 1;
+    background-size: cover;
+    overflow: 'scroll';
+    top: 0;
+    left: 0;
     .fa-times {
         display: flex;
         @extend %centerBoxes;
@@ -306,6 +310,10 @@ img {
     background-color: rgba(4, 194, 49, 0.324);
     height: 100%;
     z-index: 1;
+    background-size: cover;
+    overflow: 'scroll';
+    top: 0;
+    left: 0;
     .fa-check {
         display: flex;
         @extend %centerBoxes;
@@ -341,7 +349,7 @@ img {
 
 @media (min-width: 600px) and (max-width: 1200px) {
     .board {
-        width: 45%;
+        width: 42%;
         .boardcard {
             .card {
                 width: 5em;
@@ -370,7 +378,7 @@ img {
         }
     }
     .board {
-        width: 95%;
+        width: 65%;
         .boardcard {
             .card {
                 width: 5em;
