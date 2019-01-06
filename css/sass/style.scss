@@ -175,7 +175,7 @@ img {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        width: 90%;
+        width: 91%;
         .card {
             border: 1px solid black;
             display: flex;
@@ -367,6 +367,12 @@ img {
     }
 }
 
+@media (max-width: 730px) and (min-width: 600px) {
+    .board {
+        width: 60%;
+    }
+}
+
 @media (max-width: 600px) and (min-width: 250px) {
     body {
         background-size: auto;
@@ -378,7 +384,7 @@ img {
         }
     }
     .board {
-        width: 65%;
+        width: 95%;
         .boardcard {
             .card {
                 width: 5em;
